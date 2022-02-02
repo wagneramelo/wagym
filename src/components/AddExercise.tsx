@@ -18,7 +18,6 @@ export default function AddExercise(props: {
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           setSubmitting(false);
-          alert(JSON.stringify(values, null, 2));
           props.addExercise(
             new Exercise(
               values.exerciseName,
