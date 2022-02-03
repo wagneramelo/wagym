@@ -4,7 +4,6 @@ import Clock from "./components/Clock";
 import exercisesState from "./models/exercisesState";
 import SimpleAccordion from "./components/configList";
 import { Exercise } from "./models/exercisesList";
-import { setIn } from "formik";
 
 function App() {
   const [time, setTime] = useState(0);

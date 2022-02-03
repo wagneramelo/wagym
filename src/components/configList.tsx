@@ -4,9 +4,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddExercise from "./AddExercise";
-import React from "react";
 import { Exercise } from "../models/exercisesList";
-import exercisesState from "../models/exercisesState";
 
 export default function SimpleAccordion(props: {
   onAddExercise: (e: Exercise) => void;
