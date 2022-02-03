@@ -1,7 +1,7 @@
 import { Formik, Form, Field, validateYupSchema } from "formik";
 import { TextField } from "formik-mui";
 import { Exercise } from "../models/exercisesList";
-import { Button, LinearProgress, Alert } from "@mui/material";
+import { Button, LinearProgress, Alert, Box } from "@mui/material";
 import { useState } from "react";
 
 export default function AddExercise(props: {
@@ -35,43 +35,51 @@ export default function AddExercise(props: {
       }}
     >
       {({ submitForm, isSubmitting }) => (
-        <Form>
-          <Field
-            component={TextField}
-            name="exerciseName"
-            type="text"
-            label="Exercise Name"
-          />
-          <br />
-          <Field
-            component={TextField}
-            type="number"
-            label="Exercise Repetitions"
-            name="exerciseRepetitions"
-          />
-          <br />
-          <Field
-            component={TextField}
-            type="number"
-            label="Exercise Weight(Kg)"
-            name="exerciseWeight"
-          />
-          {isSubmitting && <LinearProgress />}
-          <br />
-          <Button
-            variant="contained"
-            color="primary"
-            disabled={isSubmitting}
-            onClick={submitForm}
-          >
-            Add Exercise
-          </Button>
-          {showMessage && (
-            <Alert severity="success">
-              Exercise {exerciseAdded} was added with success!
-            </Alert>
-          )}
-        </Form>
+        <Box
+          component="div"
+          sx={{
+            "& .MuiTextField-root": { m: 1, width: "25ch" },
+            display: "inline",
+          }}
+        >
+          <div>
+            <Field
+              component={TextField}
+              name="exerciseName"
+              type="text"
+              label="Exercise Name"
+            />
+            <br />
+            <Field
+              component={TextField}
+              type="number"
+              label="Exercise Repetitions"
+              name="exerciseRepetitions"
+            />
+            <br />
+            <Field
+              component={TextField}
+              type="number"
+              label="Exercise Weight(Kg)"
+              name="exerciseWeight"
+            />
+            {isSubmitting && <LinearProgress />}
+            <br />
+            <Button
+              variant="contained"
+              color="primary"
+              disabled={isSubmitting}
+              onClick={submitForm}
+            >
+              Add Exercise
+            </Button>
+            {showMessage && (
+              <Alert severity="success">
+                Exercise {exerciseAdded} was added with success!
+              </Alert>
+            )}
+          </div>
+        </Box>
       )}
     </Formik>
   );

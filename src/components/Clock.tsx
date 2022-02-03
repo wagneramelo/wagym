@@ -9,7 +9,7 @@ const Clock: React.FC<{
   const secondsCircular = (seconds * 100) / props.totalSeconds;
   return (
     <div onClick={props.startCounter}>
-      <CircularProgressWithLabel value={secondsCircular} />
+      <CircularProgressWithLabel value={secondsCircular} seconds={seconds} />
     </div>
   );
 };

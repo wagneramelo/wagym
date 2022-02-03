@@ -4,6 +4,7 @@ import Clock from "./components/Clock";
 import exercisesState from "./models/exercisesState";
 import SimpleAccordion from "./components/configList";
 import { Exercise } from "./models/exercisesList";
+import { Typography } from "@mui/material";
 
 function App() {
   const [time, setTime] = useState(0);
@@ -83,7 +84,8 @@ function App() {
   }
 
   const clockDiv =
-    exerciseList.length == exerciseNum && exerciseList.length !== 0 ? null : (
+    exerciseList.length === 0 ||
+    (exerciseList.length == exerciseNum && exerciseList.length !== 0) ? null : (
       <Clock
         startCounter={startCounter}
         seconds={time}
@@ -94,7 +96,7 @@ function App() {
   return (
     <div className="App">
       {clockDiv}
-      <h2>{exerciseMoment}</h2>
+      <Typography variant="h2">{exerciseMoment}</Typography>
       <SimpleAccordion
         onAddExercise={addExercise}
         listExercise={exerciseList}
